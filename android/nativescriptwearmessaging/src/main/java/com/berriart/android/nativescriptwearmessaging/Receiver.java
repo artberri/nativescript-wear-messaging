@@ -1,15 +1,18 @@
 package com.berriart.android.nativescriptwearmessaging;
 
-import android.util.Log;
+import android.content.Context;
 
 public class Receiver
 {
     private static final String TAG = "Receiver";
+    private Context _context = null;
+
+    public Receiver(Context context) {
+        _context = context;
+    }
 
     public void registerListener(MessageListener listener) {
-        if (Log.isLoggable(TAG, Log.INFO)) {
-            Log.i(TAG, "registerListener");
-        }
-        Service.registerListener(listener);
+        Logger.info(TAG, _context.getString(R.string.npaw_action_register_listener));
+        ListenerService.registerListener(listener);
     }
 }

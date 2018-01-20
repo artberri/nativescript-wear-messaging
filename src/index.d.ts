@@ -1,4 +1,5 @@
 export declare class WearMessaging {
-  static send(messagePath: string, messageToSend: string, capability?: string): void;
-  static registerListener(receiveCallback: (messagePath: string, messageReceived: string) => void): void;
+  constructor();
+  send(messagePath: string, messageToSend: string, capability?: string): void;
+  registerListener(receiveCallback: (messagePath: string, messageReceived: string) => void): void;
 }

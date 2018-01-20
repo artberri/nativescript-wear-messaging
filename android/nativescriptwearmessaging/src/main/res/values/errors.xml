@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="npaw_getnodes_exception">Exception getting connected nodes: %1$s</string>
+    <string name="npaw_capability_exception">Error getting capability nodes: %1$s</string>
+    <string name="npaw_sending_message_exception">Error sending message. Path: %1$s</string>
+    <string name="npaw_message_sent_wrong">Error sending message. Error code: %1$d</string>
+    <string name="npaw_message_callback_ko">Message received but callback not set yet for path: %1$s</string>
+</resources>

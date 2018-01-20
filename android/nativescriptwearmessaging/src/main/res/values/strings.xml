@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Nativescript Wear Messaging</string>
+    <string name="npaw_action_send">Sending message to path: %1$s</string>
+    <string name="npaw_action_send_capability">Sending message to path: %1$s with capability %2$s</string>
+    <string name="npaw_action_send_node">Sending message to node: %1$s</string>
+    <string name="npaw_no_nodes">No nodes found to send</string>
+    <string name="npaw_thread_started">Thread started</string>
+    <string name="npaw_capability_listener">Capability nodes already get</string>
+    <string name="npaw_message_sent">Message sent properly to: %1$s</string>
+    <string name="npaw_message_received">Message receive on path %1$s:</string>
+    <string name="npaw_message_callback_ok">Message callback executed successfuly with path: %1$s</string>
+    <string name="npaw_action_register_listener">Register listener</string>
 </resources>

@@ -1,5 +1,3 @@
-/* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
-
 android {
 	productFlavors {
 		"nativescript-wear-messaging" {
@@ -9,12 +7,11 @@ android {
 }
 
 dependencies {
-    // Describe plugin native Android dependencies like
-	// compile "groupName:pluginName:ver"
-    // EXAMPLE: compile "com.facebook.fresco:fresco:0.9.0+"
-    compile 'com.android.support:appcompat-v7:27.0.2'
-    compile 'com.android.support:support-media-compat:27.0.2'
-    compile 'com.android.support:support-v4:27.0.2'
-    compile 'com.google.android.gms:play-services-wearable:11.8.0'
-    // compile files('../../../node_modules/nativescript-wear-messaging/platforms/android/WearMessagingPlugin.jar')
+    def googlePlayServicesWearableVersion = project.hasProperty('googlePlayServicesWearableVersion') ? project.googlePlayServicesWearableVersion : "11.8.0"
+    def androidSupportLibsVersion = project.hasProperty('androidSupportLibsVersion') ? project.androidSupportLibsVersion : "27.0.2"
+
+    compile "com.android.support:appcompat-v7:$androidSupportLibsVersion"
+    compile "com.android.support:support-media-compat:$androidSupportLibsVersion"
+    compile "com.android.support:support-v4:$androidSupportLibsVersion"
+    compile "com.google.android.gms:play-services-wearable:$googlePlayServicesWearableVersion"
 }

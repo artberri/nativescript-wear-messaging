@@ -9,8 +9,10 @@ export class HelloWorldModel extends Observable {
   constructor() {
     super();
 
-    WearMessaging.send("/demo", "Hola");
-    WearMessaging.registerListener((messagePath: string, messageReceived: string) => {
+    let messagingClient: WearMessaging = new WearMessaging();
+    messagingClient.send("/demo", "Hola");
+    messagingClient.send("/demo", "Hola", "cap-hola");
+    messagingClient.registerListener((messagePath: string, messageReceived: string) => {
       console.log(messagePath);
       console.log(messageReceived);
     });
