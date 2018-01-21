@@ -17,6 +17,14 @@ export class WearMessaging {
         }
     }
 
+    public startListener(): void {
+        this.receiver.startListener();
+    }
+
+    public stoptListener(): void {
+        this.receiver.stopListener();
+    }
+
     public registerListener(receiveCallback: (messagePath: string, messageReceived: string) => void) {
         let messageListener = new com.berriart.android.nativescriptwearmessaging.MessageListener({
             receive: function (messagePath: string, messageReceived: string) {

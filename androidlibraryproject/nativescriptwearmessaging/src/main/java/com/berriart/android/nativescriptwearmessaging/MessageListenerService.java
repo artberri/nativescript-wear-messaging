@@ -3,8 +3,8 @@ package com.berriart.android.nativescriptwearmessaging;
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
 
-public class ListenerService extends WearableListenerService {
-    private static final String TAG = "ListenerService";
+public class MessageListenerService extends WearableListenerService {
+    private static final String TAG = "MessageListenerService";
 
     private static MessageListener onMessageReceivedCallback = null;
 

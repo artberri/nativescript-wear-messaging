@@ -13,21 +13,21 @@ public class Receiver
         _context = context;
     }
 
-    public void startListener(MessageListener listener) {
+    public void startListener() {
         _serviceIntent = new Intent(
-                _context, ListenerService.class
+                _context, MessageListenerService.class
         );
         _context.startService(_serviceIntent);
         Logger.info(TAG, _context.getString(R.string.npaw_action_start_listener));
     }
 
-    public void stopListener(MessageListener listener) {
+    public void stopListener() {
         _context.stopService(_serviceIntent);
         Logger.info(TAG, _context.getString(R.string.npaw_action_stop_listener));
     }
 
     public void registerListener(MessageListener listener) {
         Logger.info(TAG, _context.getString(R.string.npaw_action_register_listener));
-        ListenerService.registerListener(listener);
+        MessageListenerService.registerListener(listener);
     }
 }
