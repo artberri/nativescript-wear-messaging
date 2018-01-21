@@ -12,4 +12,6 @@
     <string name="npaw_selected_node">Selected node: %1$s</string>
     <string name="npaw_found_node">Node found: %1$s</string>
     <string name="npaw_listener_created">ListenerService created!</string>
+    <string name="npaw_action_start_listener">Starting listener service</string>
+    <string name="npaw_action_stop_listener">Stopping service listener</string>
 </resources>

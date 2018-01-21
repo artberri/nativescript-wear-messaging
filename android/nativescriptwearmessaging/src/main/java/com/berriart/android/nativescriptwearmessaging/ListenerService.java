@@ -11,13 +11,13 @@ public class ListenerService extends WearableListenerService {
     @Override
     public void onCreate() {
         super.onCreate();
-        Logger.info(TAG, getString(R.string.npaw_listener_created));
+        Logger.debug(TAG, getString(R.string.npaw_listener_created));
     }
 
     @Override
     public void onMessageReceived (MessageEvent messageEvent) {
         Message message = new Message(messageEvent.getPath(), new String(messageEvent.getData()));
-        Logger.info(TAG, String.format(getString(R.string.npaw_message_received), message.path));
+        Logger.debug(TAG, String.format(getString(R.string.npaw_message_received), message.path));
         receive(message);
     }
 

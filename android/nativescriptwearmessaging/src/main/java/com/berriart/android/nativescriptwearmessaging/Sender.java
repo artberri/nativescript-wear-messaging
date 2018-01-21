@@ -84,7 +84,7 @@ public class Sender {
                         Wearable.getCapabilityClient(_context).addListener(
                                 onCapabilityChangedListener, capability);
 
-                        Logger.info(TAG, _context.getString(R.string.npaw_capability_listener));
+                        Logger.debug(TAG, _context.getString(R.string.npaw_capability_listener));
 
                         String nodeId = pickBestNodeId(onCapabilityChangedListener.connectedNodes);
 
@@ -121,7 +121,7 @@ public class Sender {
                 @Override
                 public void onSuccess(Integer resultCode) {
                     if (resultCode > 0) {
-                        Logger.info(TAG, String.format(_context.getString(R.string.npaw_message_sent), message.path, resultCode));
+                        Logger.debug(TAG, String.format(_context.getString(R.string.npaw_message_sent), message.path, resultCode));
                         return;
                     }
 
@@ -172,9 +172,9 @@ public class Sender {
         String bestNodeId = null;
         // Find a nearby node or pick one arbitrarily
         for (Node node : nodes) {
-            Logger.info(TAG, String.format(_context.getString(R.string.npaw_found_node), node.getDisplayName()));
+            Logger.debug(TAG, String.format(_context.getString(R.string.npaw_found_node), node.getDisplayName()));
             if (node.isNearby()) {
-                Logger.info(TAG, String.format(_context.getString(R.string.npaw_selected_node), node.getDisplayName()));
+                Logger.debug(TAG, String.format(_context.getString(R.string.npaw_selected_node), node.getDisplayName()));
                 return node.getId();
             }
             bestNodeId = node.getId();
