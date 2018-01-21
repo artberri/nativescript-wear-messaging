@@ -120,12 +120,12 @@ public class Sender {
             sendTask.addOnSuccessListener(new OnSuccessListener<Integer>() {
                 @Override
                 public void onSuccess(Integer resultCode) {
-                    if (resultCode != SUCCESS) {
-                        Logger.error(TAG, String.format(_context.getString(R.string.npaw_message_sent_wrong), resultCode));
+                    if (resultCode > 0) {
+                        Logger.info(TAG, String.format(_context.getString(R.string.npaw_message_sent), message.path, resultCode));
                         return;
                     }
 
-                    Logger.info(TAG, String.format(_context.getString(R.string.npaw_message_sent), message.path));
+                    Logger.error(TAG, String.format(_context.getString(R.string.npaw_message_sent_wrong), resultCode));
                 }
             });
             sendTask.addOnFailureListener(new OnFailureListener() {
@@ -168,15 +168,18 @@ public class Sender {
         });
     }
 
-    private static String pickBestNodeId(Collection<Node> nodes) {
+    private String pickBestNodeId(Collection<Node> nodes) {
         String bestNodeId = null;
         // Find a nearby node or pick one arbitrarily
         for (Node node : nodes) {
+            Logger.info(TAG, String.format(_context.getString(R.string.npaw_found_node), node.getDisplayName()));
             if (node.isNearby()) {
+                Logger.info(TAG, String.format(_context.getString(R.string.npaw_selected_node), node.getDisplayName()));
                 return node.getId();
             }
             bestNodeId = node.getId();
         }
+
         return bestNodeId;
     }
 }

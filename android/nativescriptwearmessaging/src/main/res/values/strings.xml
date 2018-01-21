@@ -5,8 +5,11 @@
     <string name="npaw_no_nodes">No nodes found to send</string>
     <string name="npaw_thread_started">Thread started</string>
     <string name="npaw_capability_listener">Capability nodes already get</string>
-    <string name="npaw_message_sent">Message sent properly to: %1$s</string>
+    <string name="npaw_message_sent">Message sent properly to: %1$s with ID: %2$d</string>
     <string name="npaw_message_received">Message receive on path %1$s:</string>
     <string name="npaw_message_callback_ok">Message callback executed successfuly with path: %1$s</string>
     <string name="npaw_action_register_listener">Register listener</string>
+    <string name="npaw_selected_node">Selected node: %1$s</string>
+    <string name="npaw_found_node">Node found: %1$s</string>
+    <string name="npaw_listener_created">ListenerService created!</string>
 </resources>
