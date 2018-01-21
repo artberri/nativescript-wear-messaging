@@ -29,7 +29,7 @@ dependencies {
 
 // task to delete the old jar
 task deleteOldAar(type: Delete) {
-    delete '../../src/platforms/android/WearMessagingPlugin.jar'
+    delete '../../src/platforms/android/nativescriptwearmessaging-release.aar'
 }
 
 // task to export contents as jar
@@ -37,8 +37,6 @@ task exportAar(type: Copy) {
     from('build/outputs/aar/')
     into('../../src/platforms/android')
     include('nativescriptwearmessaging-release.aar')
-    // name the plugin
-    rename('nativescriptwearmessaging-release.aar','WearMessagingPlugin.aar')
 }
 
 exportAar.dependsOn(deleteOldAar, build)

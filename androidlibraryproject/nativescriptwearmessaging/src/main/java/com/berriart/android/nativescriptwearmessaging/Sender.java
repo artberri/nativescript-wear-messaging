@@ -3,8 +3,6 @@ package com.berriart.android.nativescriptwearmessaging;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import static com.google.android.gms.common.api.CommonStatusCodes.SUCCESS;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;

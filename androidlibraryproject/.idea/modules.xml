@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidlibraryproject.iml" filepath="$PROJECT_DIR$/androidlibraryproject.iml" />
       <module fileurl="file://$PROJECT_DIR$/nativescriptwearmessaging/nativescriptwearmessaging.iml" filepath="$PROJECT_DIR$/nativescriptwearmessaging/nativescriptwearmessaging.iml" />
     </modules>
   </component>
