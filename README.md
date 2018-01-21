@@ -1,40 +1,128 @@
 # NativeScript Wear Messaging Plugin
 
-Add your plugin badges here. See [nativescript-urlhandler](https://github.com/hypery2k/nativescript-urlhandler) for example.
+Adding support for Wear Messaging using the [MessageClient API](https://developer.android.com/training/wearables/data-layer/messages.html).
+This plugin is intended to be used to communicate between a handled app and an Android Wear app.
 
-Then describe what's the purpose of your plugin.
-
-In case you develop UI plugin, this is where you can add some screenshots.
-
-## (Optional) Prerequisites / Requirements
-
-Describe the prerequisites that the user need to have installed before using your plugin. See [nativescript-firebase plugin](https://github.com/eddyverbruggen/nativescript-plugin-firebase) for example.
+**Only Android Supported**
 
 ## Installation
 
-Describe your plugin installation steps. Ideally it would be something like:
+Install the plugin:
 
-```javascript
-tns plugin add <your-plugin-name>
+```bash
+tns plugin add nativescript-wear-messaging
 ```
 
 ## Usage
 
-Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
+The idea of this plugin is to communicate between a wear device and a handled device. Both can act as receiver or sender, in fact, that's the
+most common usage way and the one explained here. You need two apps that will communicate to each other, here is described how you can configure this plugin
+in both:
 
-```javascript
-Usage code snippets here
+### In the Wear app
+
+Add the following to your `AndroidManifest.xml` inside your `<application>` tag. It will create the service listener that will be waiting
+for the messages sent by the handled app.
+
+```xml
+<service android:name="com.berriart.android.nativescriptwearmessaging.MessageListenerService">
+    <intent-filter>
+        <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+        <data android:scheme="wear" android:host="*" />
+    </intent-filter>
+</service>
 ```
 
-## API
+Since multiple wearables can be connected to the handheld device, the wearable app needs to determine that a connected node
+is capable of launching the activity. In your wearable app, advertise that the node it runs on provides specific capabilities.
+We will use this later when sending messages from the handled device.
 
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
+Create a `wear.xml` file inside `app/App_Resources/Android/values` to advertise the capabilities
 
-| Property | Default | Description |
-| --- | --- | --- |
-| some property | property default value | property description, default values, etc.. |
-| another property | property default value | property description, default values, etc.. |
+```xml
+<resources>
+    <string-array name="android_wear_capabilities">
+        <item>name_of_your_capabilty_wear</item>
+    </string-array>
+</resources>
+```
+
+Sending messages to the handled app:
+
+```typescript
+import { WearMessaging } from 'nativescript-wear-messaging';
+
+let client = new WearMessaging();
+client.send("/some/path", "some content", "name_of_your_capabilty_handled"); // Last parameter is the capablity name of then handled device
+```
+
+Receiving messages to from the handled app:
+
+```typescript
+import { WearMessaging } from 'nativescript-wear-messaging';
+
+let client = new WearMessaging();
+client.registerListener((path: string, content: string) => {
+    if (path === "/some/path") {
+        console.log(path + " " + content);
+    }
+});
+client.startListener();
+```
+
+### In the handled app
+
+Add the following to your `AndroidManifest.xml` inside your `<application>` tag. It will create the service listener that will be waiting
+for the messages sent by the wear app.
+
+```xml
+<service android:name="com.berriart.android.nativescriptwearmessaging.MessageListenerService">
+    <intent-filter>
+        <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+        <data android:scheme="wear" android:host="*" />
+    </intent-filter>
+</service>
+```
+
+Since multiple wearables can be connected to the handheld device, the wearable app needs to determine that a connected node
+is capable of launching the activity. In your wearable app, advertise that the node it runs on provides specific capabilities.
+We will use this later when sending messages from the handled device.
+
+Create a `wear.xml` file inside `app/App_Resources/Android/values` to advertise the capabilities
+
+```xml
+<resources>
+    <string-array name="android_wear_capabilities">
+        <item>name_of_your_capabilty_handled</item>
+    </string-array>
+</resources>
+```
+
+Sending messages to the wear app:
+
+```typescript
+import { WearMessaging } from 'nativescript-wear-messaging';
+
+let client = new WearMessaging();
+client.send("/some/path", "some content", "name_of_your_capabilty_wear"); // Last parameter is the capablity name of then handled device
+```
+
+Receiving messages to from the wear app:
+
+```typescript
+import { WearMessaging } from 'nativescript-wear-messaging';
+
+let client = new WearMessaging();
+client.registerListener((path: string, content: string) => {
+    if (path === "/some/path") {
+        console.log(path + " " + content);
+    }
+});
+client.startListener();
+```
+
+*You should read the [official Android](https://developer.android.com/training/wearables/data-layer/messages.html) doc anyway.
 
 ## License
 
-Apache License Version 2.0, January 2004
+Apache License Version 2.0, January 2018

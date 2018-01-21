@@ -21,6 +21,7 @@ publish/src
 publish/package
 demo/report/report.html
 demo/report/stats.json
+publish/package-lock.json
 
 # Gradle files
 .gradle/

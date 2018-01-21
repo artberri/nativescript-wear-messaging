@@ -25,9 +25,11 @@
         "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
     },
     "keywords": [
+        "ecosystem:nativescript",
         "NativeScript",
         "JavaScript",
         "Android",
+        "Android Wear",
         "Wear"
     ],
     "author": {
