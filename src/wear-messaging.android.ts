@@ -21,7 +21,7 @@ export class WearMessaging {
         this.receiver.startListener();
     }
 
-    public stoptListener(): void {
+    public stopListener(): void {
         this.receiver.stopListener();
     }
 
