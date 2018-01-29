@@ -46,7 +46,7 @@ android:
     - android-23
     - extra-android-m2repository
     - extra-android-support
-    - sys-img-armeabi-v7a-android-21
+    - sys-img-armeabi-v7a-android-23
 
 install:
     - echo no | npm install -g nativescript
