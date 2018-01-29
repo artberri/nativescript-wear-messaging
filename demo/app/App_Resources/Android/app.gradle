@@ -5,12 +5,16 @@
 //	compile 'com.android.support:recyclerview-v7:+'
 //}
 
-android {  
-  defaultConfig {  
+android {
+  compileSdkVersion 27
+
+  defaultConfig {
     generatedDensities = []
-    applicationId = "org.nativescript.demo"  
-  }  
-  aaptOptions {  
-    additionalParameters "--no-version-vectors"  
-  }  
-} 
+    applicationId = "org.nativescript.demo"
+    minSdkVersion 23
+    targetSdkVersion 27
+  }
+  aaptOptions {
+    additionalParameters "--no-version-vectors"
+  }
+}
