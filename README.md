@@ -1,5 +1,18 @@
 # NativeScript Wear Messaging Plugin
 
+[![Build Status][build-status]][build-url]
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+[![Twitter Follow][twitter-image]][twitter-url]
+
+[build-status]:https://travis-ci.org/artberri/nativescript-wear-messaging.svg?branch=master
+[build-url]:https://travis-ci.org/artberri/nativescript-wear-messaging
+[npm-image]:http://img.shields.io/npm/v/nativescript-wear-messaging.svg
+[npm-url]:https://npmjs.org/package/nativescript-wear-messaging
+[downloads-image]:http://img.shields.io/npm/dm/nativescript-wear-messaging.svg
+[twitter-image]:https://img.shields.io/twitter/follow/artberri.svg?style=social&label=Follow%20me
+[twitter-url]:https://twitter.com/artberri
+
 Adding support for Wear Messaging using the [MessageClient API](https://developer.android.com/training/wearables/data-layer/messages.html).
 This plugin is intended to be used to communicate between a handled app and an Android Wear app.
 

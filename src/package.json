@@ -1,6 +1,6 @@
 {
     "name": "nativescript-wear-messaging",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "NativeScript Wear Messaging Plugin",
     "main": "wear-messaging",
     "typings": "index.d.ts",
@@ -41,6 +41,10 @@
     },
     "license": "Apache-2.0",
     "homepage": "https://github.com/artberri/nativescript-wear-messaging",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/artberri/nativescript-wear-messaging.git"
+    },
     "readmeFilename": "README.md",
     "devDependencies": {
         "tns-core-modules": "^3.1.0",
