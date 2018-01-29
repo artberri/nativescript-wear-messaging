@@ -41,6 +41,7 @@ android:
     - android-27
     - android-23
     - extra-android-m2repository
+    - extra-android-support
     - sys-img-armeabi-v7a-android-21
 
 install:
