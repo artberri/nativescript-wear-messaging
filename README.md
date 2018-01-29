@@ -83,6 +83,12 @@ client.registerListener((path: string, content: string) => {
 client.startListener();
 ```
 
+*Include the following to your `references.d.ts` file if you are getting this error: `TS2304: Cannot find name 'com'.`
+
+```ts
+/// <reference path="./node_modules/nativescript-wear-messaging/declarations.d.ts" /> Needed for wear-messaging
+```
+
 ### In the handled app
 
 Add the following to your `AndroidManifest.xml` inside your `<application>` tag. It will create the service listener that will be waiting
