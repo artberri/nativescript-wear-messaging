@@ -29,7 +29,7 @@ matrix:
       sudo: required
       jdk: oraclejdk8
       before_script:
-        - echo no | android create avd --force -n test -t android-24 -b armeabi-v7a
+        - echo no | android create avd --force -n test -t android-23 --abi "google_apis/armeabi-v7a"
         - emulator -avd test -no-audio -no-window &
         - android-wait-for-emulator
       before_install:
@@ -46,7 +46,7 @@ android:
     - android-23
     - extra-android-m2repository
     - extra-android-support
-    - sys-img-armeabi-v7a-android-24
+    - sys-img-armeabi-v7a-google_apis-23
 
 install:
     - echo no | npm install -g nativescript
